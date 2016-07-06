@@ -5,6 +5,17 @@ from tealdb.models import Site
 
 class SiteModelTest(TestCase):
 
+    def test_saving_and_retrieving_items(self):
+        first_site = Site()
+        first_site.save()
+
+        second_site = Site()
+        second_site.save()
+
+        saved_sites = Site.objects.all()
+        self.assertEqual(saved_sites.count(), 2,
+                         msg='Incorrect number of records saved')
+
     def test_site_name(self):
         first_site = Site()
         first_site.save()
