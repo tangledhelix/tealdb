@@ -43,23 +43,22 @@ class Site(models.Model):
 
 
 class Contact(models.Model):
-    pass
-
-    # first name
-    # last name
-    # foreign key: site (optional?)
-    # street addr 1
-    # street addr 2
-    # city
-    # state/province
-    # postal code
-    # country
-    # telephone
-    # fax
-    # mobile
-    # email
-    # twitter
-    # facebook
-    # instagram
-    # asshole?
-    # notes
+    site = models.ForeignKey(Site, default=None)
+    first_name = models.CharField(max_length=32, default='')
+    last_name = models.CharField(max_length=32, default='')
+    address1 = models.CharField(max_length=128, default='')
+    address2 = models.CharField(max_length=128, default='')
+    city = models.CharField(max_length=64, default='')
+    state = models.CharField(max_length=32, default='')
+    postal_code = models.CharField(max_length=32, default='')
+    country = models.CharField(max_length=64, default='')
+    phone = models.CharField(max_length=32, default='')
+    fax = models.CharField(max_length=32, default='')
+    mobile_phone = models.CharField(max_length=32, default='')
+    email = models.EmailField(default='')
+    social_twitter = models.CharField(max_length=64, default='')
+    social_facebook = models.CharField(max_length=64, default='')
+    social_instagram = models.CharField(max_length=64, default='')
+    asshole = models.BooleanField(default=False)
+    official = models.BooleanField(default=False)
+    notes = models.TextField(default='')
