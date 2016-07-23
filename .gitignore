@@ -1,4 +1,6 @@
-/venv
+/venv/
+/components/
+/static/
 .DS_Store
 .*.swp
 *~
