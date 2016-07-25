@@ -40,7 +40,7 @@
             </a>
         </td>
         <td>{{ contact.first_name }} {{ contact.last_name }}</td>
-        <td>{{ site.name }}</td>
+        <td>{{ contact.site.name }} ({{ contact.site.city}}, {{ contact.site.state }} {{ contact.site.country }})</td>
     </tr>
 {% endfor %}
 {% else %}

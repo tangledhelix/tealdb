@@ -9,7 +9,9 @@ def main(request):
 
 
 def contacts(request):
-    return render(request, 'contacts.html')
+    contacts = Contact.objects.all()
+    context = {'contacts': contacts}
+    return render(request, 'contacts.html', context)
 
 
 def contact(request, contact_id):
