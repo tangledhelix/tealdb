@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Contacts | TealDB{% endblock %}
+
+{% block content %}
+
+<div class="row">
+<div class="col-md-12">
+    <h2 class="text-center">Contacts</h2>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+    <a href="{% url 'add_contact' %}" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Contact
+    </a>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+<table class="table">
+
+<thead>
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Site</th>
+    </tr>
+</thead>
+
+<tbody>
+{% if contacts %}
+{% for contact in contacts %}
+    <tr>
+        <td>
+            <a href="#" class="btn btn-primary btn-xs" role="button">
+                <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Open
+            </a>
+        </td>
+        <td>{{ contact.first_name }} {{ contact.last_name }}</td>
+        <td>{{ site.name }}</td>
+    </tr>
+{% endfor %}
+{% else %}
+    <tr class="danger">
+        <td colspan="3" class="text-center">There are currently no contacts to display.</td>
+    </tr>
+{% endif %}
+</tbody>
+
+</table>
+</div>
+</div>
+
+{% endblock %}{# content #}
