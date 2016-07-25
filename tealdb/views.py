@@ -94,7 +94,9 @@ def sites(request):
 
 
 def site(request, site_id):
-    return render(request, 'site.html')
+    site = Site.objects.get(id=site_id)
+    context = {'site': site}
+    return render(request, 'site.html', context)
 
 
 def add_site(request):

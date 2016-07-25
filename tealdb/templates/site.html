@@ -4,6 +4,122 @@
 
 {% block content %}
 
-TBD
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+<div class="row">
+<div class="col-md-12">
+
+    <h2 class="text-center">
+{% if site.have_lit %}
+    <i class="em em-sunny"></i>
+{% endif %}
+        {{ site.name }}
+{% if site.have_lit %}
+    <i class="em em-sunny"></i>
+{% endif %}
+    </h2>
+
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<table class="table">
+
+<tr>
+    <th>Current disposition</th>
+    <td>{{ site.disposition }}</td>
+</tr>
+
+{% if site.address1 %}
+<tr>
+    <th>Address</th>
+    <td>
+        {{ site.address1 }}<br>
+{% if site.address2 %}
+        {{ site.address2 }}<br>
+{% endif %}
+        {{ site.city }}, {{ site.state }} {{ site.postal_code }}<br>
+{% if site.country %}
+        {{ site.country }}
+{% endif %}
+    </td>
+</tr>
+{% endif %}
+
+{% if site.phone %}
+<tr>
+    <th>Phone</th>
+    <td>{{ site.phone }}</td>
+</tr>
+{% endif %}
+
+{% if site.fax %}
+<tr>
+    <th>Fax</th>
+    <td>{{ site.fax }}</td>
+</tr>
+{% endif %}
+
+{% if site.email %}
+<tr>
+    <th>Email</th>
+    <td><a href="mailto:{{ site.email }}">{{ site.email }}</a></td>
+</tr>
+{% endif %}
+
+{% if site.web_site %}
+<tr>
+    <th>Web</th>
+    <td><a href="{{ site.web_site }}">{{ site.web_site }}</a></td>
+</tr>
+{% endif %}
+
+{% if site.map_link %}
+<tr>
+    <th>Map</th>
+    <td><a href="{{ site.map_link }}">{{ site.map_link }}</a></td>
+</tr>
+{% endif %}
+
+<tr>
+    <th>Is there a fee?</th>
+    <td>
+{% if site.fee %}
+        <i class="em em-moneybag"></i> Yes
+{% else %}
+        No
+{% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>Have we lit it?</th>
+    <td>
+{% if site.have_lit %}
+        Yes!
+{% else %}
+        Not yet.
+{% endif %}
+    </td>
+</tr>
+
+{% if site.years_lit %}
+<tr>
+    <th>Which years?</th>
+    <td>{{ site.years_lit }}</td>
+</tr>
+{% endif %}
+
+{% if site.notes %}
+<tr>
+    <th>Notes</th>
+    <td>{{ site.notes }}</td>
+</tr>
+{% endif %}
+
+</table>
+</div>
+</div>
 
 {% endblock %}{# content #}
