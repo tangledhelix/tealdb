@@ -17,7 +17,70 @@ def contact(request, contact_id):
 
 
 def add_contact(request):
-    return render(request, 'add_contact.html')
+    error = None
+    sites = Site.objects.all()
+    context = {'sites': sites}
+
+    if request.method == 'POST':
+        if 'inputSite' not in request.POST:
+            error = 'Site is required.'
+        elif not request.POST['inputSite'].strip():
+            error = 'Site is required.'
+
+        if 'inputFirstName' not in request.POST:
+            error = 'First name is required.'
+        elif not request.POST['inputFirstName'].strip():
+            error = 'First name is required.'
+
+        if 'inputLastName' not in request.POST:
+            error = 'Last name is required.'
+        elif not request.POST['inputLastName'].strip():
+            error = 'Last name is required.'
+
+        if error:
+            context['error'] = error
+        else:
+            contact = Contact()
+            site = Site.objects.get(id=request.POST['inputSite'])
+            contact.site = site
+            contact.first_name = request.POST['inputFirstName'].strip()
+            contact.last_name = request.POST['inputLastName'].strip()
+            if 'inputAddress1' in request.POST:
+                contact.address1 = request.POST['inputAddress1'].strip()
+            if 'inputAddress2' in request.POST:
+                contact.address2 = request.POST['inputAddress2'].strip()
+            if 'inputCity' in request.POST:
+                contact.city = request.POST['inputCity'].strip()
+            if 'inputState' in request.POST:
+                contact.state = request.POST['inputState'].strip()
+            if 'inputPostalCode' in request.POST:
+                contact.postal_code = request.POST['inputPostalCode'].strip()
+            if 'inputCountry' in request.POST:
+                contact.country = request.POST['inputCountry'].strip()
+            if 'inputPhone' in request.POST:
+                contact.phone = request.POST['inputPhone'].strip()
+            if 'inputFax' in request.POST:
+                contact.fax = request.POST['inputFax'].strip()
+            if 'inputMobilePhone' in request.POST:
+                contact.mobile_phone = request.POST['inputMobilePhone'].strip()
+            if 'inputEmail' in request.POST:
+                contact.email = request.POST['inputEmail'].strip()
+            if 'inputSocialTwitter' in request.POST:
+                contact.social_twitter = request.POST['inputSocialTwitter'].strip()
+            if 'inputSocialFacebook' in request.POST:
+                contact.social_facebook = request.POST['inputSocialFacebook'].strip()
+            if 'inputSocialInstagram' in request.POST:
+                contact.social_instagram = request.POST['inputSocialInstagram'].strip()
+            if 'inputNotes' in request.POST:
+                contact.notes = request.POST['inputNotes'].strip()
+            if 'inputAsshole' in request.POST:
+                contact.asshole = True
+            if 'inputOfficial' in request.POST:
+                contact.official = True
+            contact.save()
+            return redirect(views.contacts)
+
+    return render(request, 'add_contact.html', context)
 
 
 def sites(request):
