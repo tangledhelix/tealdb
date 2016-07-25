@@ -21,4 +21,6 @@ from tealdb import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.main, name='main'),
+    url(r'^sites$', views.sites, name='sites'),
+    url(r'^sites/add$', views.add_site, name='add_site'),
 ]

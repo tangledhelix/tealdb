@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Sites | TealDB{% endblock %}
+
+{% block content %}
+
+<div class="row">
+<div class="col-md-12">
+    <h2 class="text-center">Sites</h2>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+    <a href="{% url 'add_site' %}" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Site
+    </a>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+<table class="table">
+
+<thead>
+    <tr>
+        <th></th>
+        <th>Site</th>
+        <th>Location</th>
+    </tr>
+</thead>
+
+<tbody>
+{% if sites %}
+{% for site in sites %}
+    <tr>
+        <td>
+            <a href="#" class="btn btn-primary btn-xs" role="button">
+                <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Open
+            </a>
+        </td>
+        <td>{{ site.name }}</td>
+        <td>{{ site.city }}, {{ site.state }} ({{ site.country }})</td>
+    </tr>
+{% endfor %}
+{% else %}
+    <tr class="danger">
+        <td colspan="3" class="text-center">There are currently no sites to display.</td>
+    </tr>
+{% endif %}
+</tbody>
+
+</table>
+</div>
+</div>
+
+{% endblock %}{# content #}
