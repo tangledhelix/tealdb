@@ -22,7 +22,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.main, name='main'),
     url(r'^contacts$', views.contacts, name='contacts'),
+    url(r'^contacts/([0-9]+)$', views.contact, name='contact'),
     url(r'^contacts/add$', views.add_contact, name='add_contact'),
     url(r'^sites$', views.sites, name='sites'),
+    url(r'^sites/([0-9]+)$', views.site, name='site'),
     url(r'^sites/add$', views.add_site, name='add_site'),
 ]
