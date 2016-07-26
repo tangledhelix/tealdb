@@ -86,7 +86,13 @@ def add_contact(request):
 
 def sites(request):
     sites = Site.objects.all()
-    context = {'sites': sites}
+    for site in sites:
+        contact_count = Contact.objects.filter(site=site).count()
+        site.contact_count = contact_count
+
+    context = {
+        'sites': sites,
+    }
     return render(request, 'sites.html', context)
 
 
@@ -98,7 +104,10 @@ def site(request, site_id):
         if d[0] == site.disposition:
             disposition = d[1]
 
-    context = {'site': site, 'disposition': disposition}
+    context = {
+        'disposition': disposition,
+        'site': site,
+    }
     return render(request, 'site.html', context)
 
 

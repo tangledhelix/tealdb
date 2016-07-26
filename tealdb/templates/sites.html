@@ -27,6 +27,7 @@
         <th></th>
         <th>Site</th>
         <th>Location</th>
+        <th>Contacts</th>
     </tr>
 </thead>
 
@@ -41,11 +42,12 @@
         </td>
         <td>{{ site.name }}</td>
         <td>{{ site.city }}, {{ site.state }} ({{ site.country }})</td>
+        <td>{{ site.contact_count }}</td>
     </tr>
 {% endfor %}
 {% else %}
     <tr class="danger">
-        <td colspan="3" class="text-center">There are currently no sites to display.</td>
+        <td colspan="4" class="text-center">There are currently no sites to display.</td>
     </tr>
 {% endif %}
 </tbody>
