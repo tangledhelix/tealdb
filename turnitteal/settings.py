@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'g1_l!h#hw2-+40=i_l8yqe9mpddag%_zi92=(%*om+8*c0)3-d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tealdb.tangledhelix.com']
 
 
 # Application definition
@@ -81,6 +81,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'tealdb',
         'HOST': 'localhost',
+        'USER': 'tealdb',
+        'PASSWORD': 'jalCGxetzhLvDKaD',
     }
 }
 
