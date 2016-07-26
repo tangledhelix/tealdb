@@ -41,15 +41,14 @@
     </p>
 
     <form class="form-inline" method="POST" action="{% url 'search' %}">
-        <fieldset class="pull-right">
-            <div class="form-group">
-                <input type="text" class="form-control" id="needle" name="needle">
+        <div class="form-group pull-right">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </div>
+                <input type="text" class="form-control" id="needle" name="needle" placeholder="Search">
             </div>
-            <button type="submit" class="btn btn-primary">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                Search
-            </button>
-        </fieldset>
+        </div>
         {% csrf_token %}
     </form>
 
