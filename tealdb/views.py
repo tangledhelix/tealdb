@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db.models import Q
 
 from tealdb.models import Site, Contact
 from tealdb import views
@@ -150,3 +151,18 @@ def add_site(request):
             return redirect(views.sites)
 
     return render(request, 'add_site.html', context)
+
+
+def search(request):
+    if 'needle' not in request.POST:
+        return redirect('main')
+
+    needle = request.POST['needle'].strip()
+
+    sites = Site.objects.filter(name__icontains=needle)
+    contacts = Contact.objects.filter(
+        Q(first_name__icontains=needle) | Q(last_name__icontains=needle)
+    )
+
+    context = {'sites': sites, 'contacts': contacts, 'needle': needle}
+    return render(request, 'search.html', context)

@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^sites$', views.sites, name='sites'),
     url(r'^sites/([0-9]+)$', views.site, name='site'),
     url(r'^sites/add$', views.add_site, name='add_site'),
+    url(r'^search$', views.search, name='search'),
 ]

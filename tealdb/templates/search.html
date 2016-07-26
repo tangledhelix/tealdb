@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results | TealDB{% endblock %}
+
+{% block content %}
+
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+<div class="row">
+<div class="col-md-12">
+    <h2 class="text-center">Search: '{{ needle }}'</h2>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+<table class="table">
+
+<thead>
+    <tr>
+        <th colspan="3" class="text-center bigger">Contacts</th>
+    </tr>
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Site</th>
+    </tr>
+</thead>
+
+<tbody>
+{% if contacts %}
+{% for contact in contacts %}
+    <tr>
+        <td>
+            <a href="{% url 'contact' contact.id %}" class="btn btn-primary btn-xs" role="button">
+                <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Open
+            </a>
+        </td>
+        <td>
+            {{ contact.first_name }} {{ contact.last_name }}
+{% if contact.asshole %}
+            <i class="em em-poop"></i>
+{% endif %}
+        </td>
+        <td>{{ contact.site.name }} ({{ contact.site.city}}, {{ contact.site.state }} {{ contact.site.country }})</td>
+    </tr>
+{% endfor %}
+{% else %}
+    <tr class="danger">
+        <td colspan="3" class="text-center">There are no matching contacts.</td>
+    </tr>
+{% endif %}
+</tbody>
+
+</table>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+<table class="table">
+
+<thead>
+    <tr>
+        <th colspan="3" class="text-center bigger">Sites</th>
+    </tr>
+    <tr>
+        <th></th>
+        <th>Site</th>
+        <th>Location</th>
+    </tr>
+</thead>
+
+<tbody>
+{% if sites %}
+{% for site in sites %}
+    <tr>
+        <td>
+            <a href="{% url 'site' site.id %}" class="btn btn-primary btn-xs" role="button">
+                <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Open
+            </a>
+        </td>
+        <td>{{ site.name }}</td>
+        <td>{{ site.city }}, {{ site.state }} ({{ site.country }})</td>
+    </tr>
+{% endfor %}
+{% else %}
+    <tr class="danger">
+        <td colspan="3" class="text-center">There are currently no sites to display.</td>
+    </tr>
+{% endif %}
+</tbody>
+
+</table>
+</div>
+</div>
+
+{% endblock %}{# content #}

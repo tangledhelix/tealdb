@@ -42,16 +42,17 @@
         <a href="{% url 'sites' %}">Sites</a>
     </p>
 
-    <form class="form-inline">
+    <form class="form-inline" method="POST" action="{% url 'search' %}">
         <fieldset class="pull-right">
             <div class="form-group">
-                <input type="text" class="form-control" id="searchTerm">
+                <input type="text" class="form-control" id="needle" name="needle">
             </div>
             <button type="submit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                 Search
             </button>
         </fieldset>
+        {% csrf_token %}
     </form>
 
 </div>
