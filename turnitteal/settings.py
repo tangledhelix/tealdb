@@ -25,7 +25,11 @@ SECRET_KEY = 'g1_l!h#hw2-+40=i_l8yqe9mpddag%_zi92=(%*om+8*c0)3-d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['tealdb.tangledhelix.com']
+ALLOWED_HOSTS = [
+    'localhost',
+    'db.turnitteal.org',
+    'tealdb.tangledhelix.com',
+]
 
 
 # Application definition

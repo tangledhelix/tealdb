@@ -5,10 +5,6 @@ from tealdb.models import Site, Contact
 from tealdb import views
 
 
-def main(request):
-    return render(request, 'main.html')
-
-
 def contacts(request):
     contacts = Contact.objects.all()
     context = {'contacts': contacts}

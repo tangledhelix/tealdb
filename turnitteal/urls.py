@@ -20,7 +20,7 @@ from tealdb import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.main, name='main'),
+    url(r'^$', views.sites, name='main'),
     url(r'^contacts$', views.contacts, name='contacts'),
     url(r'^contacts/([0-9]+)$', views.contact, name='contact'),
     url(r'^contacts/add$', views.add_contact, name='add_contact'),
