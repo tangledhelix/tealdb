@@ -88,11 +88,11 @@ def sites(request):
     sites = Site.objects.all().order_by('name')
     for site in sites:
         contact_count = Contact.objects.filter(site=site).count()
-        site.contact_count = contact_count
+        site.contact_count = 0
+        if contact_count:
+            site.contact_count = contact_count
 
-    context = {
-        'sites': sites,
-    }
+    context = {'sites': sites}
     return render(request, 'sites.html', context)
 
 
@@ -174,6 +174,12 @@ def search(request):
     needle = request.POST['needle'].strip()
 
     sites = Site.objects.filter(name__icontains=needle)
+    for site in sites:
+        contact_count = Contact.objects.filter(site=site).count()
+        site.contact_count = 0
+        if contact_count:
+            site.contact_count = contact_count
+
     contacts = Contact.objects.filter(
         Q(first_name__icontains=needle) | Q(last_name__icontains=needle)
     )
