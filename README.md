@@ -22,6 +22,7 @@ Requirements are:
 ```
 pyvenv venv
 source venv/bin/activate
+pip install --upgrade pip
 pip install -r requirements.txt
 python3 manage.py bower install
 python3 manage.py collectstatic
