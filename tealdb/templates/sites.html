@@ -40,7 +40,12 @@
                 <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Open
             </a>
         </td>
-        <td>{{ site.name }}</td>
+        <td>
+            {{ site.name }}
+{% if site.have_lit %}
+            <i class="em em-sunny"></i>
+{% endif %}
+        </td>
         <td>{{ site.city }}, {{ site.state }} ({{ site.country }})</td>
         <td>{{ site.contact_count }}</td>
     </tr>
