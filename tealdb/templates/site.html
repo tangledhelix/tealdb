@@ -118,6 +118,23 @@
 </tr>
 {% endif %}
 
+{% if contacts %}
+<tr>
+    <th class="text-right">Contacts</th>
+    <td>
+{% for contact in contacts %}
+        <a href="{% url 'contact' contact.id %}">
+            {{ contact.first_name }} {{ contact.last_name }}
+        </a>
+{% if contact.asshole %}
+        <i class="em em-poop"></i>
+{% endif %}
+        <br>
+{% endfor %}
+    </td>
+</tr>
+{% endif %}
+
 </table>
 </div>
 </div>

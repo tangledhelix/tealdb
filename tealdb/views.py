@@ -104,7 +104,10 @@ def site(request, site_id):
         if d[0] == site.disposition:
             disposition = d[1]
 
+    contacts = Contact.objects.filter(site=site)
+
     context = {
+        'contacts': contacts,
         'disposition': disposition,
         'site': site,
     }
