@@ -6,7 +6,7 @@ from tealdb import views
 
 
 def contacts(request):
-    contacts = Contact.objects.all()
+    contacts = Contact.objects.all().order_by('last_name', 'first_name')
     context = {'contacts': contacts}
     return render(request, 'contacts.html', context)
 
@@ -85,7 +85,7 @@ def add_contact(request):
 
 
 def sites(request):
-    sites = Site.objects.all()
+    sites = Site.objects.all().order_by('name')
     for site in sites:
         contact_count = Contact.objects.filter(site=site).count()
         site.contact_count = contact_count
