@@ -25,12 +25,12 @@
 </div>
 
 <div class="row">
-<div class="col-md-8 col-md-offset-2">
+<div class="col-md-6 col-md-offset-3">
 <table class="table">
 
 {% if contact.address1 %}
 <tr>
-    <th>Address</th>
+    <th class="text-right">Address</th>
     <td>
         {{ contact.address1 }}<br>
 {% if contact.address2 %}
@@ -46,55 +46,55 @@
 
 {% if contact.phone %}
 <tr>
-    <th>Phone</th>
+    <th class="text-right">Phone</th>
     <td>{{ contact.phone }}</td>
 </tr>
 {% endif %}
 
 {% if contact.fax %}
 <tr>
-    <th>Fax</th>
+    <th class="text-right">Fax</th>
     <td>{{ contact.fax }}</td>
 </tr>
 {% endif %}
 
 {% if contact.mobile_phone %}
 <tr>
-    <th>Mobile</th>
+    <th class="text-right">Mobile</th>
     <td>{{ contact.mobile_phone }}</td>
 </tr>
 {% endif %}
 
 {% if contact.email %}
 <tr>
-    <th>Email</th>
+    <th class="text-right">Email</th>
     <td><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
 </tr>
 {% endif %}
 
 {% if contact.social_twitter %}
 <tr>
-    <th>Twitter</th>
+    <th class="text-right">Twitter</th>
     <td><a href="https://twitter.com/{{ contact.social_twitter }}" target="_blank">@{{ contact.social_twitter }}</a></td>
 </tr>
 {% endif %}
 
 {% if contact.social_facebook %}
 <tr>
-    <th>Facebook</th>
+    <th class="text-right">Facebook</th>
     <td><a href="{{ contact.social_facebook }}" target="_blank">{{ contact.social_facebook }}</a></td>
 </tr>
 {% endif %}
 
 {% if contact.social_instagram %}
 <tr>
-    <th>Instagram</th>
+    <th class="text-right">Instagram</th>
     <td><a href="https://www.instagram.com/{{ contact.social_instagram }}/" target="_blank">{{ contact.social_instagram }}</a></td>
 </tr>
 {% endif %}
 
 <tr>
-    <th>Asshole?</th>
+    <th class="text-right">Asshole?</th>
     <td>
 {% if contact.asshole %}
         <i class="em em-point_right"></i><i class="em em-ok_hand"></i> Yes! Fuck them and the horse they rode in on!
@@ -106,7 +106,7 @@
 </tr>
 
 <tr>
-    <th>Official?</th>
+    <th class="text-right">Official?</th>
     <td>
 {% if contact.official %}
         Yes
@@ -118,7 +118,7 @@
 
 {% if contact.notes %}
 <tr>
-    <th>Notes</th>
+    <th class="text-right">Notes</th>
     <td>{{ contact.notes }}</td>
 </tr>
 {% endif %}
