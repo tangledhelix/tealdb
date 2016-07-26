@@ -96,7 +96,13 @@ def sites(request):
 
 def site(request, site_id):
     site = Site.objects.get(id=site_id)
-    context = {'site': site}
+    disposition = None
+
+    for d in Site.DISPOSITION_CHOICES:
+        if d[0] == site.disposition:
+            disposition = d[1]
+
+    context = {'site': site, 'disposition': disposition}
     return render(request, 'site.html', context)
 
 
