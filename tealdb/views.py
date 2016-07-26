@@ -104,7 +104,7 @@ def site(request, site_id):
         if d[0] == site.disposition:
             disposition = d[1]
 
-    contacts = Contact.objects.filter(site=site)
+    contacts = Contact.objects.filter(site=site).order_by('last_name', 'first_name')
 
     context = {
         'contacts': contacts,

@@ -122,7 +122,7 @@
     <td>
 {% for contact in contacts %}
         <a href="{% url 'contact' contact.id %}">
-            {{ contact.first_name }} {{ contact.last_name }}
+            {{ contact.last_name }}, {{ contact.first_name }}
         </a>
 {% if contact.asshole %}
         <i class="em em-poop"></i>
