@@ -24,9 +24,13 @@ pyvenv venv
 source venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
-python3 manage.py bower install
-python3 manage.py collectstatic
+python manage.py bower install
+python manage.py collectstatic
+python manage.py migrate
 ```
+
+(Assumes you have created a `tealdb` database with user `tealdb`
+and a password matching `turnitteal/settings.py`.)
 
 ### Update static components ###
 
