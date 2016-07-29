@@ -15,17 +15,23 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 
 from tealdb import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/login/$', auth_views.login),
+    url(r'^accounts/logout/$', auth_views.logout),
+
     url(r'^$', views.sites, name='main'),
-    url(r'^contacts$', views.contacts, name='contacts'),
-    url(r'^contacts/([0-9]+)$', views.contact, name='contact'),
-    url(r'^contacts/add$', views.add_contact, name='add_contact'),
     url(r'^sites$', views.sites, name='sites'),
     url(r'^sites/([0-9]+)$', views.site, name='site'),
     url(r'^sites/add$', views.add_site, name='add_site'),
+
+    url(r'^contacts$', views.contacts, name='contacts'),
+    url(r'^contacts/([0-9]+)$', views.contact, name='contact'),
+    url(r'^contacts/add$', views.add_contact, name='add_contact'),
+
     url(r'^search$', views.search, name='search'),
 ]

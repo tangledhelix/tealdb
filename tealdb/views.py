@@ -1,22 +1,26 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 from tealdb.models import Site, Contact
 from tealdb import views
 
 
+@login_required
 def contacts(request):
     contacts = Contact.objects.all().order_by('last_name', 'first_name')
     context = {'contacts': contacts}
     return render(request, 'contacts.html', context)
 
 
+@login_required
 def contact(request, contact_id):
     contact = Contact.objects.get(id=contact_id)
     context = {'contact': contact}
     return render(request, 'contact.html', context)
 
 
+@login_required
 def add_contact(request):
     error = None
     sites = Site.objects.all()
@@ -84,6 +88,7 @@ def add_contact(request):
     return render(request, 'add_contact.html', context)
 
 
+@login_required
 def sites(request):
     sites = Site.objects.all().order_by('name')
     for site in sites:
@@ -96,6 +101,7 @@ def sites(request):
     return render(request, 'sites.html', context)
 
 
+@login_required
 def site(request, site_id):
     site = Site.objects.get(id=site_id)
     disposition = None
@@ -114,6 +120,7 @@ def site(request, site_id):
     return render(request, 'site.html', context)
 
 
+@login_required
 def add_site(request):
     error = None
     context = {}
@@ -167,6 +174,7 @@ def add_site(request):
     return render(request, 'add_site.html', context)
 
 
+@login_required
 def search(request):
     if 'needle' not in request.POST:
         return redirect('main')

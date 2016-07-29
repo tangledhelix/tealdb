@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if form.errors %}
+<div class="row">
+<div class="col-md-12">
+
+<h3 class="text-center text-danger">Your username and password didn't match. Please try again.</h3>
+
+</div>
+</div>
+{% endif %}
+
+<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+{% csrf_token %}
+
+<div class="row">
+<div class="col-md-4 col-md-offset-4">
+
+<table class="table">
+<thead>
+    <tr>
+        <th class="text-center" colspan="2"><h2>Login required</h2></th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input class="pull-right" type="submit" value="login" />
+        </td>
+    </tr>
+</tbody>
+</table>
+
+<input type="hidden" name="next" value="{{ next }}" />
+
+</div>
+</div>
+
+</form>
+
+{% endblock %}
