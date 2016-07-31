@@ -28,10 +28,12 @@ urlpatterns = [
     url(r'^sites$', views.sites, name='sites'),
     url(r'^sites/([0-9]+)$', views.site, name='site'),
     url(r'^sites/add$', views.add_site, name='add_site'),
+    url(r'^sites/edit/([0-9]+)$', views.edit_site, name='edit_site'),
 
     url(r'^contacts$', views.contacts, name='contacts'),
     url(r'^contacts/([0-9]+)$', views.contact, name='contact'),
     url(r'^contacts/add$', views.add_contact, name='add_contact'),
+    url(r'^contacts/edit/([0-9]+)$', views.edit_contact, name='edit_contact'),
 
     url(r'^search$', views.search, name='search'),
 ]
