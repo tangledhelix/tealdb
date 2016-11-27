@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 
 
@@ -18,6 +20,9 @@ class Site(models.Model):
     map_link = models.URLField(max_length=512, default='')
     fee = models.BooleanField(default=False)
     notes = models.TextField(default='')
+    submission_date = models.TextField(default='')
+    lighting_start_date = models.TextField(default='')
+    lighting_end_date = models.TextField(default='')
 
     NOT_CONTACTED = 'not_contacted'
     PENDING = 'pending'

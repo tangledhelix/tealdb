@@ -240,6 +240,12 @@ def add_site(request):
                 site.phone = request.POST['inputPhone'].strip()
             if 'inputFax' in request.POST:
                 site.fax = request.POST['inputFax'].strip()
+            if 'inputSubmissionDate' in request.POST:
+                site.submission_date = request.POST['inputSubmissionDate'].strip()
+            if 'inputLightingStartDate' in request.POST:
+                site.lighting_start_date = request.POST['inputLightingStartDate'].strip()
+            if 'inputLightingEndDate' in request.POST:
+                site.lighting_end_date = request.POST['inputLightingEndDate'].strip()
             if 'inputYearsLit' in request.POST:
                 site.years_lit = request.POST['inputYearsLit'].strip()
             if 'inputMapLink' in request.POST:
@@ -299,6 +305,12 @@ def edit_site(request, site_id):
                 site.phone = request.POST['inputPhone'].strip()
             if 'inputFax' in request.POST:
                 site.fax = request.POST['inputFax'].strip()
+            if 'inputSubmissionDate' in request.POST:
+                site.submission_date = request.POST['inputSubmissionDate'].strip()
+            if 'inputLightingStartDate' in request.POST:
+                site.lighting_start_date = request.POST['inputLightingStartDate'].strip()
+            if 'inputLightingEndDate' in request.POST:
+                site.lighting_end_date = request.POST['inputLightingEndDate'].strip()
             if 'inputYearsLit' in request.POST:
                 site.years_lit = request.POST['inputYearsLit'].strip()
             if 'inputMapLink' in request.POST:

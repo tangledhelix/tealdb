@@ -105,6 +105,31 @@
 </tr>
 
 <tr>
+    <th class="text-right">Date of submission</th>
+    <td>
+{% if site.submission_date %}
+    {{ site.submission_date }}
+{% else %}
+    None
+{% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th class="text-right">Lighting date(s)</th>
+    <td>
+{% if site.lighting_start_date %}
+    {{ site.lighting_start_date }}
+{%     if site.lighting_end_date %}
+    to {{ site.lighting_end_date }}
+{%     endif %}
+{% else %}
+    None
+{% endif %}
+    </td>
+</tr>
+
+<tr>
     <th class="text-right">Have we lit it?</th>
     <td>
 {% if site.have_lit %}

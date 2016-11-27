@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}{{ form_type|capfirst }} Site | TealDB{% endblock %}
 
 {% block content %}
+
+<script type="text/javascript" src="{% static 'moment/min/moment.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css' %}"></script>
 
 <div class="row">
 <div class="col-md-12">
@@ -93,6 +98,36 @@
     </div>
 
     <div class="form-group">
+        <label for="inputSubmissionDate">Date of submission</label>
+        <div class="input-group date" id="datetimepicker1">
+            <input class="form-control" id="inputSubmissionDate" name="inputSubmissionDate" />
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputLightingStartDate">Lighting begins</label>
+        <div class="input-group date" id="datetimepicker2">
+            <input class="form-control" id="inputLightingStartDate" name="inputLightingStartDate" />
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputLightingEndDate">Lighting ends</label>
+        <div class="input-group date" id="datetimepicker3">
+            <input class="form-control" id="inputLightingEndDate" name="inputLightingEndDate" />
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="inputYearsLit">Years Lit</label>
         <input type="text" class="form-control" id="inputYearsLit"
             name="inputYearsLit" placeholder="2014 2015 2016" value="{{ site.years_lit }}">
@@ -146,5 +181,22 @@
 
 </div>
 </div>
+
+<script>
+$(function () {
+    $('#datetimepicker1').datetimepicker({
+        format: 'MMM D, YYYY',
+        defaultDate: '{{ site.submission_date }}',
+    })
+    $('#datetimepicker2').datetimepicker({
+        format: 'MMM D, YYYY',
+        defaultDate: '{{ site.lighting_start_date }}',
+    })
+    $('#datetimepicker3').datetimepicker({
+        format: 'MMM D, YYYY',
+        defaultDate: '{{ site.lighting_end_date }}',
+    })
+});
+</script>
 
 {% endblock %}{# content #}
