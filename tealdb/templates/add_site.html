@@ -3,6 +3,8 @@
 
 {% block title %}{{ form_type|capfirst }} Site | TealDB{% endblock %}
 
+{# date format - http://momentjs.com/docs/#/displaying/format/ #}
+
 {% block content %}
 
 <script type="text/javascript" src="{% static 'moment/min/moment.min.js' %}"></script>
@@ -184,18 +186,19 @@
 
 <script>
 $(function () {
+    var dateFormat = 'M/D/YYYY';
     $('#datetimepicker1').datetimepicker({
-        format: 'MMM D, YYYY',
+        format: dateFormat,
         defaultDate: '{{ site.submission_date }}',
-    })
+    });
     $('#datetimepicker2').datetimepicker({
-        format: 'MMM D, YYYY',
+        format: dateFormat,
         defaultDate: '{{ site.lighting_start_date }}',
-    })
+    });
     $('#datetimepicker3').datetimepicker({
-        format: 'MMM D, YYYY',
+        format: dateFormat,
         defaultDate: '{{ site.lighting_end_date }}',
-    })
+    });
 });
 </script>
 
