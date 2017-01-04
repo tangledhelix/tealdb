@@ -163,7 +163,7 @@ def edit_contact(request, contact_id):
             else:
                 contact.official = False
             contact.save()
-            return redirect(views.contact, contact.id)
+            return redirect(views.contacts)
 
     return render(request, 'add_contact.html', context)
 
@@ -334,7 +334,7 @@ def edit_site(request, site_id):
             else:
                 site.applied_this_year = False
             site.save()
-            return redirect(views.site, site.id)
+            return redirect(views.sites)
 
     return render(request, 'add_site.html', context)
 
