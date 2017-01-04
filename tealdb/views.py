@@ -256,6 +256,8 @@ def add_site(request):
                 site.disposition = request.POST['inputDisposition'].strip()
             if 'inputFee' in request.POST:
                 site.fee = True
+            if 'inputAppliedThisYear' in request.POST:
+                site.applied_this_year = True
             if 'inputHaveLit' in request.POST:
                 site.have_lit = True
             site.save()
@@ -327,6 +329,10 @@ def edit_site(request, site_id):
                 site.have_lit = True
             else:
                 site.have_lit = False
+            if 'inputAppliedThisYear' in request.POST:
+                site.applied_this_year = True
+            else:
+                site.applied_this_year = False
             site.save()
             return redirect(views.site, site.id)
 

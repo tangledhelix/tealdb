@@ -45,6 +45,9 @@
         </td>
         <td>
             {{ site.name }}
+{% if site.applied_this_year %}
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+{% endif %}
 {% if site.have_lit %}
             <i class="em em-sunny"></i>
 {% endif %}

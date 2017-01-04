@@ -23,6 +23,7 @@ class Site(models.Model):
     submission_date = models.TextField(default='')
     lighting_start_date = models.TextField(default='')
     lighting_end_date = models.TextField(default='')
+    applied_this_year = models.BooleanField(default=False)
 
     NOT_CONTACTED = 'not_contacted'
     PENDING = 'pending'
