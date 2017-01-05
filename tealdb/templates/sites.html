@@ -25,6 +25,7 @@
 <thead>
     <tr>
         <th></th>
+        <th>Status</th>
         <th>Site</th>
         <th>Location</th>
         <th>Contacts</th>
@@ -44,14 +45,18 @@
             </a>
         </td>
         <td>
-            {{ site.name }}
-{% if site.applied_this_year %}
+{% if site.accepted_this_year %}
             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+{% else %}
+{%     if site.applied_this_year %}
+            <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
+{%     endif %}
 {% endif %}
 {% if site.have_lit %}
             <i class="em em-sunny"></i>
 {% endif %}
         </td>
+        <td>{{ site.name }}</td>
         <td>{{ site.city }}, {{ site.state }} ({{ site.country }})</td>
         <td>{{ site.contact_count }}</td>
     </tr>

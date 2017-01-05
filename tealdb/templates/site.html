@@ -141,6 +141,17 @@
 </tr>
 
 <tr>
+    <th class="text-right">Accepted this year?</th>
+    <td>
+{% if site.accepted_this_year %}
+        Yes!
+{% else %}
+        Not yet.
+{% endif %}
+    </td>
+</tr>
+
+<tr>
     <th class="text-right">Have we lit it?</th>
     <td>
 {% if site.have_lit %}

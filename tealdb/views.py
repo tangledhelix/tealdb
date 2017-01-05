@@ -258,6 +258,8 @@ def add_site(request):
                 site.fee = True
             if 'inputAppliedThisYear' in request.POST:
                 site.applied_this_year = True
+            if 'inputAcceptedThisYear' in request.POST:
+                site.accepted_this_year = True
             if 'inputHaveLit' in request.POST:
                 site.have_lit = True
             site.save()
@@ -333,6 +335,10 @@ def edit_site(request, site_id):
                 site.applied_this_year = True
             else:
                 site.applied_this_year = False
+            if 'inputAcceptedThisYear' in request.POST:
+                site.accepted_this_year = True
+            else:
+                site.accepted_this_year = False
             site.save()
             return redirect(views.sites)
 

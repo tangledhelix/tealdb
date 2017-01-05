@@ -160,6 +160,13 @@
 
     <div class="checkbox">
         <label>
+            <input id="inputAcceptedThisYear" name="inputAcceptedThisYear" type="checkbox"{% if site.accepted_this_year %} checked{% endif %}>
+            Accepted this year
+        </label>
+    </div>
+
+    <div class="checkbox">
+        <label>
             <input id="inputHaveLit" name="inputHaveLit" type="checkbox"{% if site.have_lit %} checked{% endif %}>
             Have lit this site
         </label>
