@@ -42,21 +42,22 @@
     <td>{{ disposition }}</td>
 </tr>
 
-{% if site.address1 %}
 <tr>
-    <th class="text-right">Address</th>
+    <th class="text-right">Location</th>
     <td>
-        {{ site.address1 }}<br>
+        {{ site.address1 }}
 {% if site.address2 %}
-        {{ site.address2 }}<br>
+        <br />{{ site.address2 }}
 {% endif %}
-        {{ site.city }}, {{ site.state }} {{ site.postal_code }}<br>
+        {% if site.address1 %}<br />{% endif %}
+        {{ site.city }}{% if site.city and site.state %},{% endif %}
+        {{ site.state }}
+        {{ site.postal_code }}
 {% if site.country %}
-        {{ site.country }}
+        <br  />{{ site.country }}
 {% endif %}
     </td>
 </tr>
-{% endif %}
 
 {% if site.phone %}
 <tr>
