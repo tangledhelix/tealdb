@@ -179,6 +179,13 @@
         </label>
     </div>
 
+    <div class="checkbox">
+        <label>
+            <input id="inputLightingsNotAvailable" name="inputLightingsNotAvailable" type="checkbox"{% if site.lightings_not_available %} checked{% endif %}>
+            They do not entertain requests
+        </label>
+    </div>
+
     <div class="form-group">
         <label for="inputNotes">Notes</label>
         <textarea id="inputNotes" name="inputNotes" class="form-control" rows="3" >{{ site.notes }}</textarea>

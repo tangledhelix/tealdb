@@ -262,6 +262,8 @@ def add_site(request):
                 site.accepted_this_year = True
             if 'inputHaveLit' in request.POST:
                 site.have_lit = True
+            if 'inputLightingsNotAvailable' in request.POST:
+                site.lightings_not_available = True
             site.save()
             return redirect(views.sites)
 
@@ -339,6 +341,10 @@ def edit_site(request, site_id):
                 site.accepted_this_year = True
             else:
                 site.accepted_this_year = False
+            if 'inputLightingsNotAvailable' in request.POST:
+                site.lightings_not_available = True
+            else:
+                site.lightings_not_available = False
             site.save()
             return redirect(views.sites)
 

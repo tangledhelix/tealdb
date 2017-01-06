@@ -25,6 +25,7 @@ class Site(models.Model):
     lighting_end_date = models.TextField(default='')
     applied_this_year = models.BooleanField(default=False)
     accepted_this_year = models.BooleanField(default=False)
+    lightings_not_available = models.BooleanField(default=False)
 
     NOT_CONTACTED = 'not_contacted'
     PENDING = 'pending'

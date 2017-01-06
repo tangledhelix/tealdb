@@ -46,11 +46,14 @@
         </td>
         <td>
 {% if site.accepted_this_year %}
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-ok" style="color:green" aria-hidden="true"></span>
 {% else %}
 {%     if site.applied_this_year %}
             <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
 {%     endif %}
+{% endif %}
+{% if site.lightings_not_available %}
+            <span class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span>
 {% endif %}
 {% if site.have_lit %}
             <i class="em em-sunny"></i>

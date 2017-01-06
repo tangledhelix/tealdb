@@ -105,6 +105,17 @@
 </tr>
 
 <tr>
+    <th class="text-right">Do they decline all requests?</th>
+    <td>
+{% if site.lightings_not_available %}
+        <span class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span> Yes
+{% else %}
+        No
+{% endif %}
+    </td>
+</tr>
+
+<tr>
     <th class="text-right">Date of submission</th>
     <td>
 {% if site.submission_date %}
