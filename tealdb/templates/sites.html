@@ -60,7 +60,11 @@
 {% endif %}
         </td>
         <td>{{ site.name }}</td>
-        <td>{{ site.city }}, {{ site.state }} ({{ site.country }})</td>
+        <td>
+            {{ site.city }}{% if site.city and site.state %},{% endif %}
+            {% if site.state %}{{ site.state }}{% endif %}
+            {% if site.country %}({{ site.country }}){% endif %}
+        </td>
         <td>{{ site.contact_count }}</td>
     </tr>
 {% endfor %}
