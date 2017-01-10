@@ -45,6 +45,9 @@
             </a>
         </td>
         <td>
+{% if site.action_required %}
+            <span class="glyphicon glyphicon-flag" style="color:red" aria-hidden="true"></span>
+{% endif %}
 {% if site.accepted_this_year %}
             <span class="glyphicon glyphicon-ok" style="color:green" aria-hidden="true"></span>
 {% else %}

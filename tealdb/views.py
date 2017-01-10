@@ -264,6 +264,8 @@ def add_site(request):
                 site.have_lit = True
             if 'inputLightingsNotAvailable' in request.POST:
                 site.lightings_not_available = True
+            if 'inputActionRequired' in request.POST:
+                site.action_required = True
             site.save()
             return redirect(views.sites)
 
@@ -345,6 +347,10 @@ def edit_site(request, site_id):
                 site.lightings_not_available = True
             else:
                 site.lightings_not_available = False
+            if 'inputActionRequired' in request.POST:
+                site.action_required = True
+            else:
+                site.action_required = False
             site.save()
             return redirect(views.sites)
 

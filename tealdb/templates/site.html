@@ -181,6 +181,17 @@
 </tr>
 {% endif %}
 
+<tr>
+    <th class="text-right">Action required</th>
+    <td>
+{% if site.action_required %}
+        Yes
+{% else %}
+        No
+{% endif %}
+    </td>
+</tr>
+
 {% if site.notes %}
 <tr>
     <th class="text-right">Notes</th>
