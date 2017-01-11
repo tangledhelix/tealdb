@@ -58,6 +58,9 @@
 {% if site.lightings_not_available %}
             <span class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span>
 {% endif %}
+{% if site.fee %}
+            <span class="glyphicon glyphicon-usd" style="color:darkgreen" aria-hidden="true"></span>
+{% endif %}
 {% if site.have_lit %}
             <i class="em em-sunny"></i>
 {% endif %}
