@@ -56,6 +56,9 @@
 {%     endif %}
 {% endif %}
 {% if site.lightings_not_available %}
+            <span class="glyphicon glyphicon-ban-circle" style="color:red" aria-hidden="true"></span>
+{% endif %}
+{% if site.disposition == 'responded_declined' %}
             <span class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span>
 {% endif %}
 {% if site.fee %}
