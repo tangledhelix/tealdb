@@ -1,6 +1,7 @@
 import datetime
 
 from django.db import models
+from django.contrib import admin
 
 
 class Site(models.Model):
@@ -51,6 +52,10 @@ class Site(models.Model):
     )
 
 
+class SiteAdmin(admin.ModelAdmin):
+    list_display = ('name', 'city', 'state')
+
+
 class Contact(models.Model):
     site = models.ForeignKey(Site, default=None)
     first_name = models.CharField(max_length=32, default='')
@@ -71,3 +76,8 @@ class Contact(models.Model):
     asshole = models.BooleanField(default=False)
     official = models.BooleanField(default=False)
     notes = models.TextField(default='')
+
+
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name')
+
