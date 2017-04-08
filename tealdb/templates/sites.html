@@ -27,6 +27,7 @@
         <th></th>
         <th>Status</th>
         <th>Site</th>
+        <th>Date</th>
         <th>Location</th>
         <th>Contacts</th>
     </tr>
@@ -69,6 +70,12 @@
 {% endif %}
         </td>
         <td>{{ site.name }}</td>
+        <td>
+            {{ site.lighting_start_date }}
+{% if site.lighting_end_date %}
+            - {{ site.lighting_start_date }}
+{% endif %}
+        </td>
         <td>
             {{ site.city }}{% if site.city and site.state %},{% endif %}
             {% if site.state %}{{ site.state }}{% endif %}
