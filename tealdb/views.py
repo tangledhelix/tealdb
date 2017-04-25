@@ -283,6 +283,10 @@ def edit_site(request, site_id):
         'dispositions': Site.DISPOSITION_CHOICES,
     }
 
+    if request.method == 'POST' and 'delete_button' in request.POST:
+        site.delete()
+        return redirect(views.sites)
+
     if request.method == 'POST':
         if 'inputName' not in request.POST:
             error = 'Site name is required.'

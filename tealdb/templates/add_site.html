@@ -198,9 +198,15 @@
         <textarea id="inputNotes" name="inputNotes" class="form-control" rows="3" >{{ site.notes }}</textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary">
+    <button type="submit" id="save_button" name="save_button" class="btn btn-primary">
         Save
     </button>
+
+{% if form_type == 'edit' %}
+    <button type="submit" id="delete_button" name="delete_button" class="btn btn-danger">
+        DELETE
+    </button>
+{% endif %}
 
     {% csrf_token %}
 
@@ -223,6 +229,11 @@ $(function () {
     $('#datetimepicker3').datetimepicker({
         format: dateFormat,
         defaultDate: '{{ site.lighting_end_date }}',
+    });
+    $('#delete_button').click(function(event) {
+        if (! confirm('Really delete this site? There is no undo!')) {
+            event.preventDefault();
+        }
     });
 });
 </script>
