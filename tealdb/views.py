@@ -23,7 +23,7 @@ def contact(request, contact_id):
 @login_required
 def add_contact(request):
     error = None
-    sites = Site.objects.all()
+    sites = Site.objects.all().order_by('name')
     context = {
         'sites': sites,
         'form_type': 'add',
