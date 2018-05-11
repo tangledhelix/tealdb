@@ -28,6 +28,7 @@ class Site(models.Model):
     accepted_this_year = models.BooleanField(default=False)
     lightings_not_available = models.BooleanField(default=False)
     action_required = models.BooleanField(default=False)
+    twitter = models.CharField(max_length=64, default='')
 
     NOT_CONTACTED = 'not_contacted'
     PENDING = 'pending'

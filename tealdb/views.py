@@ -266,6 +266,8 @@ def add_site(request):
                 site.lightings_not_available = True
             if 'inputActionRequired' in request.POST:
                 site.action_required = True
+            if 'twitter' in request.POST:
+                site.twitter = request.POST['twitter'].strip()
             site.save()
             return redirect(views.sites)
 
@@ -331,6 +333,8 @@ def edit_site(request, site_id):
                 site.notes = request.POST['inputNotes'].strip()
             if 'inputDisposition' in request.POST:
                 site.disposition = request.POST['inputDisposition'].strip()
+            if 'inputTwitter' in request.POST:
+                site.twitter = request.POST['inputTwitter'].strip()
             if 'inputFee' in request.POST:
                 site.fee = True
             else:

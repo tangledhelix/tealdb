@@ -87,6 +87,13 @@
 </tr>
 {% endif %}
 
+{% if site.twitter %}
+<tr>
+    <th class="text-right">Twitter</th>
+    <td>@{{ site.twitter }} (<a href="https://twitter.com/{{ site.twitter }}" target="_blank">link</a>)</td>
+</tr>
+{% endif %}
+
 {% if site.map_link %}
 <tr>
     <th class="text-right">Map</th>
