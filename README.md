@@ -20,13 +20,13 @@ Requirements are:
 ### Install requirements ###
 
 ```
-pyvenv venv
-source venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
-python manage.py bower install
-python manage.py collectstatic
-python manage.py migrate
+python3 -m venv venv
+. venv/bin/activate
+pip3 install --upgrade pip
+pip3 install -r requirements.txt
+python3 manage.py bower install
+python3 manage.py collectstatic
+python3 manage.py migrate
 ```
 
 (Assumes you have created a `tealdb` database with user `tealdb`

@@ -13,27 +13,26 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from django.urls import include, path
 
 from tealdb import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^accounts/login/$', auth_views.login),
-    url(r'^accounts/logout/$', auth_views.logout),
+    path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
 
-    url(r'^$', views.sites, name='main'),
-    url(r'^sites$', views.sites, name='sites'),
-    url(r'^sites/([0-9]+)$', views.site, name='site'),
-    url(r'^sites/add$', views.add_site, name='add_site'),
-    url(r'^sites/edit/([0-9]+)$', views.edit_site, name='edit_site'),
+    path('', views.sites, name='main'),
+    path('sites', views.sites, name='sites'),
+    path('site/<int:site>', views.site, name='site'),
+    path('sites/add', views.add_site, name='add_site'),
+    path('sites/edit/<int:site>', views.edit_site, name='edit_site'),
 
-    url(r'^contacts$', views.contacts, name='contacts'),
-    url(r'^contacts/([0-9]+)$', views.contact, name='contact'),
-    url(r'^contacts/add$', views.add_contact, name='add_contact'),
-    url(r'^contacts/edit/([0-9]+)$', views.edit_contact, name='edit_contact'),
+    path('contacts', views.contacts, name='contacts'),
+    path('contact/<int:contact>', views.contact, name='contact'),
+    path('contacts/add', views.add_contact, name='add_contact'),
+    path('contacts/edit/<int:contact>', views.edit_contact, name='edit_contact'),
 
-    url(r'^search$', views.search, name='search'),
+    path('search', views.search, name='search'),
 ]

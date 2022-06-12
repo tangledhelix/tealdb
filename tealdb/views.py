@@ -14,8 +14,8 @@ def contacts(request):
 
 
 @login_required
-def contact(request, contact_id):
-    contact = Contact.objects.get(id=contact_id)
+def contact(request, **kwargs):
+    contact = Contact.objects.get(id=kwargs["contact"])
     context = {'contact': contact}
     return render(request, 'contact.html', context)
 
@@ -92,11 +92,11 @@ def add_contact(request):
 
 
 @login_required
-def edit_contact(request, contact_id):
+def edit_contact(request, **kwargs):
     error = None
     sites = Site.objects.all()
 
-    contact = Contact.objects.get(id=contact_id)
+    contact = Contact.objects.get(id=kwargs["contact"])
     context = {
         'sites': sites,
         'contact': contact,
@@ -182,8 +182,8 @@ def sites(request):
 
 
 @login_required
-def site(request, site_id):
-    site = Site.objects.get(id=site_id)
+def site(request, **kwargs):
+    site = Site.objects.get(id=kwargs["site"])
     disposition = None
 
     for d in Site.DISPOSITION_CHOICES:
@@ -275,10 +275,10 @@ def add_site(request):
 
 
 @login_required
-def edit_site(request, site_id):
+def edit_site(request, **kwargs):
     error = None
 
-    site = Site.objects.get(id=site_id)
+    site = Site.objects.get(id=kwargs["site"])
     context = {
         'site': site,
         'form_type': 'edit',

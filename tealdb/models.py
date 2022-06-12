@@ -58,7 +58,7 @@ class SiteAdmin(admin.ModelAdmin):
 
 
 class Contact(models.Model):
-    site = models.ForeignKey(Site, default=None)
+    site = models.ForeignKey(Site, default=None, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=32, default='')
     last_name = models.CharField(max_length=32, default='')
     address1 = models.CharField(max_length=128, default='')

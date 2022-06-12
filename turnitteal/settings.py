@@ -46,13 +46,12 @@ INSTALLED_APPS = [
     'djangobower',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -145,3 +144,5 @@ BOWER_INSTALLED_APPS = (
     'jquery#2.2.4',
     'eonasdan-bootstrap-datetimepicker#4.17.43',
 )
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
