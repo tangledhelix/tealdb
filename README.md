@@ -29,8 +29,21 @@ python3 manage.py collectstatic
 python3 manage.py migrate
 ```
 
-(Assumes you have created a `tealdb` database with user `tealdb`
-and a password matching `turnitteal/settings.py`.)
+Set the database parameters in your environment to match how your database is
+configured. PostgreSQL is assumed.
+
+```
+TEALDB_DBUSER="tealdb"
+TEALDB_DBPASS="foobar"
+TEALDB_DBHOST="localhost"
+TEALDB_DBNAME="tealdb"
+```
+
+Set an application secret in the variable `TEALDB_SECRET_KEY`.
+
+If you wish to use Debug mode, you can set `TEALDB_DEBUG=True`. It will default to False.
+
+Or using a .env file for Docker.
 
 ### Update static components ###
 
