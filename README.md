@@ -32,6 +32,14 @@ python3 manage.py migrate
 (Assumes you have created a `tealdb` database with user `tealdb`
 and a password matching `turnitteal/settings.py`.)
 
+You'll need to create a superuser to log in as:
+
+```
+python3 manage.py createsuperuser --username dan --email dan@tangledhelix.com
+```
+
+And then enter a password twice to set it.
+
 ### Update static components ###
 
 To update the version of bower resources, or add more, look at
