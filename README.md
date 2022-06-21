@@ -45,6 +45,14 @@ If you wish to use Debug mode, you can set `TEALDB_DEBUG=True`. It will default 
 
 Or using a .env file for Docker.
 
+You'll need to create a superuser to log in as:
+
+```
+python3 manage.py createsuperuser --username dan --email dan@tangledhelix.com
+```
+
+And then enter a password twice to set it.
+
 ### Update static components ###
 
 To update the version of bower resources, or add more, look at
