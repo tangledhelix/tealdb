@@ -40,6 +40,8 @@
         <a href="{% url 'sites' %}">Sites</a>
         &middot;
         <a href="{% url 'contacts' %}">Contacts</a>
+        &middot;
+        <a href="/accounts/logout/?next=/">Logout</a>
     </p>
 
     <form class="form-inline" method="POST" action="{% url 'search' %}">
