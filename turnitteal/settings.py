@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+from . import secrets
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'g1_l!h#hw2-+40=i_l8yqe9mpddag%_zi92=(%*om+8*c0)3-d'
+SECRET_KEY = secrets.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -85,8 +87,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'tealdb',
         'HOST': 'localhost',
-        'USER': 'tealdb',
-        'PASSWORD': 'jalCGxetzhLvDKaD',
+        'USER': secrets.DB_USERNAME,
+        'PASSWORD': secrets.DB_PASSWORD,
     }
 }
 
