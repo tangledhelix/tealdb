@@ -15,6 +15,10 @@ Requirements are:
 - [jQuery](https://jquery.com/)
 - [django-bower](https://django-bower.readthedocs.io/en/latest/)
 
+## Secrets
+
+A few things are kept in `turnitteal/secrets.py`. (See `secrets.py.example`.)
+
 ## Setup for dev/testing ##
 
 ### Install requirements ###
