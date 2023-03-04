@@ -23,14 +23,22 @@ A few things are kept in `turnitteal/secrets.py`. (See `secrets.py.example`.)
 
 ### Install requirements ###
 
+If you're using venv, start with this:
+
 ```
-python3 -m venv venv
+# This command may be 'python3' or 'python' depending on your system
+python -m venv venv
 . venv/bin/activate
-pip3 install --upgrade pip
-pip3 install -r requirements.txt
-python3 manage.py bower install
-python3 manage.py collectstatic
-python3 manage.py migrate
+```
+
+To install everything:
+
+```
+python -m pip install -U pip
+python -m pip install -r requirements.txt
+python manage.py bower install
+python manage.py collectstatic
+python manage.py migrate
 ```
 
 (Assumes you have created a `tealdb` database with user `tealdb`
@@ -50,8 +58,8 @@ To update the version of bower resources, or add more, look at
 `BOWER_INSTALLED_APPS` in `settings.py`, then:
 
 ```
-python3 manage.py bower install
-python3 manage.py collectstatic
+python manage.py bower install
+python manage.py collectstatic
 ```
 
 For statically-defined resources you manually manage under `{APP}/static`,
