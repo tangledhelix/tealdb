@@ -1,6 +1,6 @@
 /venv/
-/components/
 /static/
+/node_modules/
 /turnitteal/secrets.py
 .DS_Store
 .*.swp

@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "tealdb",
-    "djangobower",
+    "django_yarnpkg",
 ]
 
 MIDDLEWARE = [
@@ -133,18 +133,18 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "components")
+NODE_MODULES_ROOT = os.path.join(BASE_DIR, "node_modules")
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-    "djangobower.finders.BowerFinder",
+    "django_yarnpkg.finders.NodeModulesFinder",
 ]
 
-BOWER_INSTALLED_APPS = (
-    "bootstrap#3.3.6",
-    "jquery#2.2.4",
-    "eonasdan-bootstrap-datetimepicker#4.17.43",
+YARN_INSTALLED_APPS = (
+    "bootstrap@^3.3.6",
+    "jquery@^2.2.4",
+    "eonasdan-bootstrap-datetimepicker@^4.17.43",
 )
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
