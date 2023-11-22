@@ -5,7 +5,7 @@ Requirements are:
 
 - Python 3
 - The Python stuff found in `requirements.txt`
-- Javascript stuff managed via [Bower](https://bower.io) - `npm install -g bower`
+- Javascript stuff managed via [Yarn](https://yarnpkg.com)
 
 ## Resources used in this project ##
 
@@ -13,7 +13,7 @@ Requirements are:
 - [Django](https://www.djangoproject.com/)
 - [Bootstrap](http://getbootstrap.com/)
 - [jQuery](https://jquery.com/)
-- [django-bower](https://django-bower.readthedocs.io/en/latest/)
+- [django-yarnpkg](https://pypi.org/project/django-yarnpkg/)
 
 ## Secrets
 
@@ -27,7 +27,8 @@ If you're using venv, start with this:
 
 ```
 # This command may be 'python3' or 'python' depending on your system
-python -m venv venv
+# (If you have both, then use 'python3')
+python3 -m venv venv
 . venv/bin/activate
 ```
 
@@ -36,7 +37,7 @@ To install everything:
 ```
 python -m pip install -U pip
 python -m pip install -r requirements.txt
-python manage.py bower install
+python manage.py yarn install
 python manage.py collectstatic
 python manage.py migrate
 ```
@@ -54,11 +55,11 @@ And then enter a password twice to set it.
 
 ### Update static components ###
 
-To update the version of bower resources, or add more, look at
-`BOWER_INSTALLED_APPS` in `settings.py`, then:
+To update the version of Yarn resources, or add more, look at
+`YARN_INSTALLED_APPS` in `settings.py`, then:
 
 ```
-python manage.py bower install
+python manage.py yarn install
 python manage.py collectstatic
 ```
 
@@ -66,7 +67,7 @@ For statically-defined resources you manually manage under `{APP}/static`,
 manage the file like normal, and then run just the above `collectstatic`
 command to assemble all the static resources in one location.
 
-You can call other bower commands similarly, if needed. See here for more
-on the django-bower integration:
+You can call other yarn commands similarly, if needed. See here for more
+on the django-yarnpkg integration:
 
-<https://github.com/nvbn/django-bower>
+<https://pypi.org/project/django-yarnpkg/>
